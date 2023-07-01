@@ -4,24 +4,24 @@ from django.urls import reverse
 # Create your views here.
 
 zodiac_dict = {
-    'aries' : 'Овен',
-    'taurus' : 'Телец на',
-    'gemini': 'Близняшки няшки',
-    'cancer': 'Раааак- отличный самый знак. И весы хотят полтора килограмма колбасы.',
-    'leo': 'Львенок, как теленок',
-    'virgo': 'Девица как знак',
-    'libra': 'Следи за весом, весы- знак',
-    'scorpio': 'Скорпион- круче Саб-Зиро',
-    'sagittarius': 'Стрелец- молодец',
-    'capricorn': 'Козегог рок рок',
-    'aquarius': 'Водолей лей- лей',
-    'pisces': 'Рыбы бы бы бы',
+    'aries' : ['Овен', 'fire'],
+    'taurus' : ['Телец на', 'earth'],
+    'gemini': ['Близняшки няшки', 'air'],
+    'cancer': ['Раааак- отличный самый знак. И весы хотят полтора килограмма колбасы.', 'water'],
+    'leo': ['Львенок, как теленок', 'fire'],
+    'virgo': ['Девица как знак', 'earth'],
+    'libra': ['Следи за весом, весы- знак', 'air'],
+    'scorpio': ['Скорпион- круче Саб-Зиро', 'water'],
+    'sagittarius': ['Стрелец- молодец', 'fire'],
+    'capricorn': ['Козегог рок рок', 'earth'],
+    'aquarius': ['Водолей лей- лей', 'air'],
+    'pisces': ['Рыбы бы бы бы', 'water'],
 }
-
+print(zodiac_dict.get('virgo',))
 def get_info_about_zodiac_sign(request, sign_zodiac):
     description = zodiac_dict.get(sign_zodiac, None)
     if description:
-        return HttpResponse(description)
+        return HttpResponse(description[0])
     else:
         return HttpResponseNotFound(f'Нету такого знака зодиака- {sign_zodiac}')
 
@@ -45,3 +45,5 @@ def index(request):
     </ol>
     '''
     return HttpResponse(response)
+
+# def get_info_about_element(request):
