@@ -17,7 +17,6 @@ zodiac_dict = {
     'aquarius': ['Водолей лей- лей', 'air'],
     'pisces': ['Рыбы бы бы бы', 'water'],
 }
-print(zodiac_dict.get('virgo',))
 def get_info_about_zodiac_sign(request, sign_zodiac):
     description = zodiac_dict.get(sign_zodiac, None)
     if description:
@@ -46,4 +45,23 @@ def index(request):
     '''
     return HttpResponse(response)
 
-# def get_info_about_element(request):
+def element_types(request):
+    zodiac_list = list(zodiac_dict.values())
+    res = []
+    for sub_list in zodiac_list:
+        res.append(sub_list[1])
+    res = list(set(res))
+    li_elements = ''
+    for element in res:
+        redirect_path = reverse('element_type')
+        li_elements += f"<li><a href= '{element}'>{element}</a></li>"
+    response = f'''
+    <ol>
+    {li_elements}
+    </ol>
+    <br>
+    <h1>Слава, я заморочился и создал роут на фиг и представление к нему, а роут настолько динамический,
+     что ненумерованный список формируется на основании значений вложенного списка атрибутов 
+     знаков зодиака<h1>
+    '''
+    return HttpResponse(response)
