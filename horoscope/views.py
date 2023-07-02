@@ -53,7 +53,7 @@ def element_types(request):
     res = list(set(res))
     li_elements = ''
     for element in res:
-        li_elements += f"<li><a href= '{element}'>{element}</a></li>"
+        li_elements += f"<li><a href= '{element}'>{element.title()}</a></li>"
     response = f'''
     <ul>
     {li_elements}
@@ -67,13 +67,17 @@ def element(request, changed_element):
     if changed_element == (zodiac_dict[el])[1]:
       res.append(el)
     else:
-      continue
-  li_elements = ''
-  for element in res:
-      li_elements += f"<li><a href= '{element}'>{element}</a></li>"
-  response = f'''
-     <ul>
-     {li_elements}
-     </ul>
-     '''
-  return HttpResponse(response)
+        continue
+  if res:
+    li_elements = ''
+    for element in res:
+        redirect_path = reverse('horoscope_name', args=[element])
+        li_elements += f"<li><a href= '{redirect_path}'>{element.title()}</a></li>"
+        response = f'''
+            <ul>
+            {li_elements}
+            </ul>
+            '''
+    return HttpResponse(response)
+  else:
+      return HttpResponseNotFound(f'Нету такой стихии в международной космоэнергетике- {changed_element}')
