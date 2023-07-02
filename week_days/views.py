@@ -22,3 +22,6 @@ def get_info_about_day_of_week_as_number(request, day_of_week):
         return HttpResponse(f'This is {day_of_week} day of weak')
     else:
         return HttpResponse(f'Неверный номер дня- {day_of_week}')
+
+def index(request):
+    return render(request, 'week_days/greeting.html')
