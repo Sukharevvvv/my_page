@@ -65,10 +65,9 @@ def element(request, changed_element):
   res = []
   for el in zodiac_dict:
     if changed_element == (zodiac_dict[el])[1]:
-      res.append(changed_element)
+      res.append(el)
     else:
       continue
-  return res
   li_elements = ''
   for element in res:
       li_elements += f"<li><a href= '{element}'>{element}</a></li>"
