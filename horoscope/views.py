@@ -53,15 +53,28 @@ def element_types(request):
     res = list(set(res))
     li_elements = ''
     for element in res:
-        redirect_path = reverse('element_type')
         li_elements += f"<li><a href= '{element}'>{element}</a></li>"
     response = f'''
-    <ol>
+    <ul>
     {li_elements}
-    </ol>
-    <br>
-    <h1>Слава, я заморочился и создал роут на фиг и представление к нему, а роут настолько динамический,
-     что ненумерованный список формируется на основании значений вложенного списка атрибутов 
-     знаков зодиака<h1>
+    </ul>
     '''
     return HttpResponse(response)
+
+def element(request, changed_element):
+  res = []
+  for el in zodiac_dict:
+    if changed_element == (zodiac_dict[el])[1]:
+      res.append(changed_element)
+    else:
+      continue
+  return res
+  li_elements = ''
+  for element in res:
+      li_elements += f"<li><a href= '{element}'>{element}</a></li>"
+  response = f'''
+     <ul>
+     {li_elements}
+     </ul>
+     '''
+  return HttpResponse(response)
