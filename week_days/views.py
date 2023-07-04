@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from dataclasses import dataclass
+from django.urls import reverse
 
 # Create your views here.
 @dataclass
@@ -21,8 +22,6 @@ days_list = [
     monday, tuesday, wednesday, thursday, friday, saturday, sunday
 ]
 
-
-
 def get_info_about_day_of_week(request, day_of_week):
     res = ''
     for i in days_list:
@@ -31,7 +30,7 @@ def get_info_about_day_of_week(request, day_of_week):
             if res:
                 return HttpResponse(res)
             else:
-                return HttpResponse(f'нету такого дня- {day_of_week}')
+                return HttpResponse(f'нету такого дня- {day_of_week}.')
 
 
 # def get_info_about_day_of_week_as_number(request, day_of_week):
