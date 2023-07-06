@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню</title>
+</head>
+<body>
+<h1>Главное меню приложения Гороскоп.</h1>
+<p>Список знаков</p>
+<p>
+    <ul>
+    {% for zodiac in zodiacs %}
+        <li>
+            {{zodiac|title}}
+        </li>
+    {% endfor %}
+    </ul>
+
+</p>
+</body>
+</html>
+
