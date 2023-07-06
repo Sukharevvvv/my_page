@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Меню</title>
-</head>
-<body>
-<h1>Главное меню приложения Гороскоп.</h1>
-<p>Список знаков</p>
-<p>
-    <ul>
+{% extends 'base.html' %}
+
+{% block title %}
+    Главное меню
+{% endblock %}
+
+{% block content %}
+        <p><b>Щас список будет</b></p>
+        <ul>
     {% for zodiac in zodiacs %}
         <li>
-            <a href = "{% url 'horoscope_name' sign_zodiac=zodiac %}">{{zodiac|title}}</a>
+            <a href = "{% url 'horoscope_name' sign_zodiac=zodiac %}">{{zodiac|capfirst}}</a>
         </li>
     {% endfor %}
     </ul>
-
-</p>
-</body>
-</html>
+{% endblock %}
 

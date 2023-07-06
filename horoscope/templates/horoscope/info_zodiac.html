@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Описание знака {{current_sign|capfirst}}
+{% endblock %}
+
+{% block content %}
+{% if description is None %}
+    <p>Нема такого знака- {{current_sign|capfirst}}</p>
+{% else %}
+    <h2>Описание знака {{current_sign|capfirst}}, короче:</h2>
+    <p style="color:#0000FF">{{description}}</p>
+    <hr>
+{% endif %}
+{% endblock %}

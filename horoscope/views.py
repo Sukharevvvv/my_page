@@ -20,14 +20,18 @@ zodiac_dict = {
 def get_info_about_zodiac_sign(request, sign_zodiac):
     description = zodiac_dict.get(sign_zodiac, None)
     if description:
-        return HttpResponse(description[0])
+        data = {
+            "description" : description[0],
+            "current_sign" : sign_zodiac,
+        }
+        return render(request, 'horoscope/info_zodiac.html',  context=data)
     else:
-        return HttpResponseNotFound(f'Нету такого знака зодиака- {sign_zodiac}')
+        return HttpResponseNotFound('шо за дела')
 
 def get_info_about_zodiac_sign_by_number(request, sign_zodiac:int):
     zodiacs = list(zodiac_dict)
     if sign_zodiac > len(zodiacs):
-        return HttpResponseNotFound(f'Неправильный порядковый номер зодивка {sign_zodiac}')
+        return HttpResponseNotFound(f'Неправильный порядковый номер зодиака {sign_zodiac}')
     name_zodiac = zodiacs[sign_zodiac - 1]
     redirect_url = reverse('horoscope_name', args=(name_zodiac, ))
     return HttpResponseRedirect(redirect_url)
