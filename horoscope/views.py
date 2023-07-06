@@ -34,16 +34,6 @@ def get_info_about_zodiac_sign_by_number(request, sign_zodiac:int):
 
 def index(request):
     zodiacs = list(zodiac_dict)
-    # li_elements = ''
-    # for sign in zodiacs:
-    #     redirect_path = reverse('horoscope_name', args=[sign])
-    #     li_elements += f"<li><a href= '{redirect_path}'>{sign.title()}</a></li>"
-    # response = f'''
-    # <ol>
-    # {li_elements}
-    # </ol>
-    # '''
-
     data = {
         'zodiacs' : zodiacs
     }
