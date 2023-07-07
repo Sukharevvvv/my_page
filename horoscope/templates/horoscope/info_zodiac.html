@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+{% include 'includes/navbar.html'%}
 {% if description is None %}
     <p>Нема такого знака- {{current_sign|capfirst}}</p>
 {% else %}
