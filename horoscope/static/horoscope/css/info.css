@@ -1,3 +1,17 @@
 h2 {
-    color: red;
+    color: black;
+}
+
+h2 {border : 1px solid blue;
+    border-radius:0px 40px 40px 0px;
+    background-color: violet;
+    position : left;
+    max-width : 400px;}
+
+#my_description {
+    border : 1px solid blue;
+    border-radius:40px;
+    background-color: white;
+    position : align;
+    max-width : 400px;
 }

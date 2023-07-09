@@ -4,7 +4,7 @@ from django.urls import reverse
 # Create your views here.
 
 zodiac_dict = {
-    'aries' : ['Овен', 'fire'],
+    'aries' : ['Овен супер четкий знак', 'fire'],
     'taurus' : ['Телец на', 'earth'],
     'gemini': ['Близняшки няшки', 'air'],
     'cancer': ['Раааак- отличный самый знак. И весы хотят полтора килограмма колбасы.', 'water'],
