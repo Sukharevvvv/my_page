@@ -11,6 +11,8 @@
 
 {% block content %}
 {% include 'includes/navbar.html'%}
+<p id="slava"></p>
+<button type="button" onclick='document.getElementById("slava").innerHTML = "Слава- красавчик"'>Волшебная кнопка</button>
 {% if description is None %}
     <p>Нема такого знака- {{current_sign|capfirst}}</p>
 {% else %}
@@ -22,6 +24,7 @@
 {% if current_sign == 'gemini' %}
 <p>
     <img src="https://arapov.net/img/arapov-1200.jpg" width="500px">
+
 </p>
 {% endif %}
 {% endblock %}
